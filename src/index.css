@@ -1,0 +1,42 @@
+/* navigation */
+.navBackground {
+    background-color: #ffce00;
+    color: #4e4e56;
+}
+
+.navBackground img {
+    height: 40px;
+}
+
+/* Home */
+
+/* Movie */
+
+/* Movie Listing*/
+
+/* Genre */
+
+/* Genre Listing */
+
+
+
+/* Responsive */
+
+
+/* Tablet size */
+@media all and (min-width: 768px) and (max-width: 1024px) { }
+
+
+/* Tablet size */
+@media all and (min-width: 480px) and (max-width: 768px) { 
+    body{
+        background-color: #ffce00;
+    
+    }
+}
+
+
+/* smaller than iphone */
+@media all and (max-width: 480px) {
+
+}
