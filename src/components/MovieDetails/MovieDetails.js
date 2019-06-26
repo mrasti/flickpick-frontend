@@ -6,7 +6,8 @@ class MovieInfo extends Component {
     constructor(props){
         super(props);
         this.state = {
-            movie: []
+            movie: [],
+            genres: []
         }
     }
     goHome = () => {
@@ -27,6 +28,18 @@ class MovieInfo extends Component {
                 })
                 );
             })
+        const category = `http://localhost:3000/api/genre/`
+        Axios.get(category)
+        .then(res=>{
+            console.log(`This is for genre ${res}`)
+            console.log(res.data)
+            let results = res.data
+            this.setState(
+                prevState => ({
+                    genres: results
+                })
+            )
+        })
     }
 
 
@@ -42,10 +55,16 @@ class MovieInfo extends Component {
                         <iframe width="560" height="315" src={youtubeLink} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </div>
                     )
+                } else{
+                    return (<p>
+                        There is no video available
+                    </p>)
                 }
             }
             //find the genres
-            
+            let genresListing =  this.state.genres.map((item, index) => {
+                
+            })
 
             //returning the movie information
             let newYear = item.release_date
