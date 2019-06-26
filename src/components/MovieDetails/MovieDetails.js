@@ -1,6 +1,7 @@
 // component about movie details
 import React, { Component } from 'react';
 import {Route, Link, Switch, Redirect} from "react-router-dom";
+// import FavoriteButton from '../'
 import Axios from 'axios'
 class MovieInfo extends Component {
     constructor(props){
