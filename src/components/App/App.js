@@ -15,10 +15,8 @@ class App extends Component {
     super(props);
     this.state = {
       email: "",
-      password: "",
       isLoggedIn: false,
-      user: {},
-      id: null
+      userId: null
     };
   }
   componentDidMount() {
@@ -61,6 +59,7 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
+        this.setState({ userId: response.data.userId });
       })
       .catch(err => console.log(err));
   }
@@ -74,6 +73,7 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
+        this.setState({ userId: response.data.userId });
       })
       .catch(err => console.log(err));
   }
@@ -102,6 +102,7 @@ class App extends Component {
                 isLoggedIn={this.state.isLoggedIn}
                 handleInput={this.handleInput}
                 handleSignUp={this.handleSignUp}
+                {...props}
               />
             );
           }}
@@ -114,6 +115,7 @@ class App extends Component {
                 isLoggedIn={this.state.isLoggedIn}
                 handleInput={this.handleInput}
                 handleLogIn={this.handleLogIn}
+                {...props}
               />
             );
           }}
