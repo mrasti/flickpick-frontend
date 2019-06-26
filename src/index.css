@@ -9,7 +9,9 @@
 }
 
 /* Home */
-
+.homeTop{
+    margin:0;
+}
 
 /* Favorite */
 .favoriteButton img {
