@@ -54,12 +54,10 @@ class MovieInfo extends Component {
                 <div className="movieDetails" key={index}>
                     <div>
                     <img src={imgName} alt="Movie Poster"></img>
-
                     </div>
 
 
-                    <div
-                    ><h1>{item.title}</h1>
+                    <div><h1>{item.title}</h1>
                     <article>
                         <p>
                             Year: {newYear.slice(0,4)}
