@@ -1,7 +1,7 @@
 // component about movie details
 import React, { Component } from 'react';
 import {Route, Link, Switch, Redirect} from "react-router-dom";
-// import FavoriteButton from '../'
+import FavoriteButton from '../../movFav.png'
 import Axios from 'axios'
 class MovieInfo extends Component {
     constructor(props){
@@ -72,7 +72,7 @@ class MovieInfo extends Component {
             let imgName = `https://image.tmdb.org/t/p/original/${item.posterImage}`
             return(
                 <div className="movieDetails" key={index}>
-                    <div>
+                    <div className="moviePoster">
                     <img src={imgName} alt="Movie Poster"></img>
                     </div>
 
@@ -84,6 +84,9 @@ class MovieInfo extends Component {
                         </p>
                         <p>
                         Rating: {item.vote_average}
+                        </p>
+                        <p>
+                            <Link to="" className="favoriteButton"><img src={FavoriteButton}></img></Link>
                         </p>
                     </article>
                     <p> 

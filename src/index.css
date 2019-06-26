@@ -10,6 +10,11 @@
 
 /* Home */
 
+
+/* Favorite */
+.favoriteButton img {
+/* width: 20px; */
+}
 /* Movie */
 
 /* Movie Listing*/
@@ -24,7 +29,7 @@
     grid-template-columns: repeat(2,1fr);
 }
 
-.movieDetails img {
+.moviePoster img {
     width: 75%;
 }
 
