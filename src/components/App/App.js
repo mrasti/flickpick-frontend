@@ -87,7 +87,6 @@ class App extends Component {
         <Navigation />
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
-        <Route path="/movies" exact component={Movies} />
         <Route
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
