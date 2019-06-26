@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       email: "",
       isLoggedIn: false,
-      userId: null
+      userId: localStorage.userId
     };
   }
   componentDidMount() {
@@ -72,6 +72,7 @@ class App extends Component {
       })
       .then(response => {
         localStorage.token = response.data.token;
+        localStorage.userId = response.data.userId;
         this.setState({ isLoggedIn: true });
         this.setState({ userId: response.data.userId });
       })
@@ -87,6 +88,10 @@ class App extends Component {
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
         <Route path="/movies" exact component={Movies} />
+        <Route
+          path="/movies"
+          render={props => <Movies userInfo={this.state} />}
+        />
         <Route
           path="/movieinfo/:id"
           render={props => (
