@@ -1,3 +1,4 @@
+// Component showing the movie listing
 import React, { Component } from 'react';
 import Movie from '../Movie/Movie'
 import Axios from 'axios';
@@ -5,22 +6,38 @@ class MovieList extends Component {
     constructor(props){
         super(props)
         this.state = {
-            title: null,
-            posterImage: null,
-            id: null,
-            overview: null
+            movieInfo:[],
+           
         }
     }
-
-    render() {
+    componentDidMount() {
         const url = "http://localhost:3000/api/movies/"
         Axios.get(url)
         .then(res=>{
-            console.log(res)
+            console.log(res.data.results)
+            let results = res.data.results;
+            this.setState(
+                prevState => ({
+                    movieInfo: results
+                })
+              );
+        // console.log(movieInfo)
+        })
+    }
+    render() {
+        let list = this.state.movieInfo.map((item,index) =>{
+            console.log(item)
+       return (
+        <div key={index}>
+        <Movie title={item.title} overview={item.overview} posterImage={item.posterImage} id={item.id}></Movie>
+        </div>
+       )
+       
         })
         return (
-            <div>
-                <Movie></Movie>
+            <div className="columns">
+                
+                {list}
                 
             </div>
         );
