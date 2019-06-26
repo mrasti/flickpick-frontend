@@ -36,8 +36,11 @@ class MovieInfo extends Component {
             //finds out if there is a video or not
             let video = function(){
                 if (item.videoExists){
+                    let youtubeLink = `https://www.youtube.com/embed/${item.videoKey}`
                     return(
-                        <div>youtube video {item.videoKey}</div>
+                        <div>
+                        <iframe width="560" height="315" src={youtubeLink} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                        </div>
                     )
                 }
             }
@@ -46,10 +49,17 @@ class MovieInfo extends Component {
 
             //returning the movie information
             let newYear = item.release_date
+            let imgName = `https://image.tmdb.org/t/p/original/${item.posterImage}`
             return(
                 <div className="movieDetails" key={index}>
-                    <div><img src={item.posterImage}></img></div>
-                    <div><h1>{item.title}</h1>
+                    <div>
+                    <img src={imgName} alt="Movie Poster"></img>
+
+                    </div>
+
+
+                    <div
+                    ><h1>{item.title}</h1>
                     <article>
                         <p>
                             Year: {newYear.slice(0,4)}
@@ -58,8 +68,12 @@ class MovieInfo extends Component {
                         Rating: {item.vote_average}
                         </p>
                     </article>
-                    <div>{item.overview}</div></div>
+                    <p> 
+                    {item.overview}
+                    </p>
                     {video()}
+                    </div>
+                    
 
                 </div>
             )
