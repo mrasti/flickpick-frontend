@@ -1,12 +1,14 @@
 // component about movie details
 import React, { Component } from 'react';
 import {Route, Link, Switch, Redirect} from "react-router-dom";
+// import FavoriteButton from '../'
 import Axios from 'axios'
 class MovieInfo extends Component {
     constructor(props){
         super(props);
         this.state = {
-            movie: []
+            movie: [],
+            genres: []
         }
     }
     goHome = () => {
@@ -27,6 +29,18 @@ class MovieInfo extends Component {
                 })
                 );
             })
+        const category = `http://localhost:3000/api/genre/`
+        Axios.get(category)
+        .then(res=>{
+            console.log(`This is for genre ${res}`)
+            console.log(res.data)
+            let results = res.data
+            this.setState(
+                prevState => ({
+                    genres: results
+                })
+            )
+        })
     }
 
 
@@ -36,19 +50,33 @@ class MovieInfo extends Component {
             //finds out if there is a video or not
             let video = function(){
                 if (item.videoExists){
+                    let youtubeLink = `https://www.youtube.com/embed/${item.videoKey}`
                     return(
-                        <div>youtube video {item.videoKey}</div>
+                        <div>
+                        <iframe width="560" height="315" src={youtubeLink} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                        </div>
                     )
+                } else{
+                    return (<p>
+                        There is no video available
+                    </p>)
                 }
             }
             //find the genres
-            
+            let genresListing =  this.state.genres.map((item, index) => {
+                
+            })
 
             //returning the movie information
             let newYear = item.release_date
+            let imgName = `https://image.tmdb.org/t/p/original/${item.posterImage}`
             return(
                 <div className="movieDetails" key={index}>
-                    <div><img src={item.posterImage}></img></div>
+                    <div>
+                    <img src={imgName} alt="Movie Poster"></img>
+                    </div>
+
+
                     <div><h1>{item.title}</h1>
                     <article>
                         <p>
@@ -58,8 +86,12 @@ class MovieInfo extends Component {
                         Rating: {item.vote_average}
                         </p>
                     </article>
-                    <div>{item.overview}</div></div>
+                    <p> 
+                    {item.overview}
+                    </p>
                     {video()}
+                    </div>
+                    
 
                 </div>
             )

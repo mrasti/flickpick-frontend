@@ -16,7 +16,16 @@
 .columns {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    
+
+}
+/* Movie details */
+.movieDetails{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.movieDetails img {
+    width: 75%;
 }
 
 /* Genre */
