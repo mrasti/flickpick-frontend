@@ -1,5 +1,7 @@
+// Component that shows the movie card
 import React, { Component } from 'react';
 import {Card, Button} from 'react-bootstrap';
+import {Route, Link, Switch, Redirect} from "react-router-dom";
 
 class Movie extends Component {
     
@@ -13,7 +15,11 @@ class Movie extends Component {
   <Card.Body>
     <Card.Title>{this.props.title}</Card.Title>
     {/* <Card.Text>{this.props.overview}</Card.Text> */}
+    <Link to={"/movieinfo/" + this.props.id}>
+
     <Button variant="primary">Go somewhere</Button>
+    </Link>
+    
   </Card.Body>
 </Card>
             </div>

@@ -1,3 +1,4 @@
+// Component showing the movie listing
 import React, { Component } from 'react';
 import Movie from '../Movie/Movie'
 import Axios from 'axios';
@@ -28,7 +29,7 @@ class MovieList extends Component {
             console.log(item)
        return (
         <div key={index}>
-        <Movie title={item.title} overview={item.overview} posterImage={item.posterImage}></Movie>
+        <Movie title={item.title} overview={item.overview} posterImage={item.posterImage} id={item.id}></Movie>
         </div>
        )
        
