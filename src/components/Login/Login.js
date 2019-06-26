@@ -6,7 +6,8 @@ class Login extends Component {
       <div>
         <form>
           <div>
-            <p>Email</p>
+            <h2>Log In</h2>
+            <p>Username</p>
             <input
               className="input-field"
               type="text"
