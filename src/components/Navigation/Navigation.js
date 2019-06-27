@@ -5,6 +5,8 @@ import Home from "../Home/Home";
 import "./Navigation.css";
 import { Route, Link, Switch, Redirect } from "react-router-dom";
 import Logo from "./flickpick.png";
+import Search from "../Search/Search";
+
 class Navigation extends Component {
   render() {
     return (
@@ -55,6 +57,8 @@ class Navigation extends Component {
                 <NavDropdown.Divider />
                 {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>
+
+              <div class="right"><Search></Search></div>
             </Nav>
             <Nav>
               {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
