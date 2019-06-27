@@ -6,6 +6,7 @@ class Home extends Component {
       <div className="homeTop">
         <div className="embed-container">
           <iframe
+            title="sweet-movie"
             src="https://player.vimeo.com/video/344644642"
             frameBorder="0"
             webkitallowfullscreen="true"
