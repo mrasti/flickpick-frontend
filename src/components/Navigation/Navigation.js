@@ -45,14 +45,6 @@ class Navigation extends Component {
               ) : (
                 " "
               )}
-
-              <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Sign In</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Log In</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Log Out</NavDropdown.Item>
-                <NavDropdown.Divider />
-                {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
-              </NavDropdown>
             </Nav>
             <Nav>
               {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
