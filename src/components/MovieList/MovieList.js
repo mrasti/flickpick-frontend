@@ -9,6 +9,7 @@ class MovieList extends Component {
       movieInfo: []
     };
   }
+
   componentDidMount() {
     const url = "http://localhost:3000/api/movies/";
     Axios.get(url).then(res => {
@@ -20,9 +21,9 @@ class MovieList extends Component {
       // console.log(movieInfo)
     });
   }
+
   render() {
     let list = this.state.movieInfo.map((item, index) => {
-      console.log(item);
       return (
         <div className="movie-list" key={index}>
           <Movie
