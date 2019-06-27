@@ -12,17 +12,14 @@ class MovieList extends Component {
   componentDidMount() {
     const url = "http://localhost:3000/api/movies/";
     Axios.get(url).then(res => {
-      console.log(res.data.results);
       let results = res.data.results;
       this.setState(prevState => ({
         movieInfo: results
       }));
-      // console.log(movieInfo)
     });
   }
   render() {
     let list = this.state.movieInfo.map((item, index) => {
-      console.log(item);
       return (
         <div className="movie-list" key={index}>
           <Movie

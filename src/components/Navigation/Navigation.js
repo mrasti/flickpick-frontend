@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
-import Movies from "../MovieList/MovieList";
-import Home from "../Home/Home";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "./Navigation.css";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "./flickpick.png";
 class Navigation extends Component {
   render() {
