@@ -1,6 +1,5 @@
 // component about movie details
 import React, { Component } from "react";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
 import FavoriteButton from "../../movFav.png";
 import Axios from "axios";
 class MovieInfo extends Component {
@@ -20,7 +19,6 @@ class MovieInfo extends Component {
     const url = `http://localhost:3000/api/movies/${movieInfo}`;
     //pulling all the data information
     Axios.get(url).then(res => {
-      console.log(res.data);
       let results = res.data.results;
       this.setState(prevState => ({
         movie: results
@@ -28,8 +26,6 @@ class MovieInfo extends Component {
     });
     const category = `http://localhost:3000/api/genre/`;
     Axios.get(category).then(res => {
-      console.log(`This is for genre ${res}`);
-      console.log(res.data);
       let results = res.data;
       this.setState(prevState => ({
         genres: results
@@ -42,7 +38,7 @@ class MovieInfo extends Component {
     const movieId = this.state.movie[0]._id;
     Axios.put(`http://localhost:3000/api/user/add/${userId}/${movieId}`, {
       headers: { Authorization: "bearer " + localStorage.token }
-    }).then(res => console.log(res));
+    }).then(res => res.json());
   };
 
   render() {

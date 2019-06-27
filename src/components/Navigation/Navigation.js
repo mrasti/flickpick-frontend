@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
-import Movies from "../MovieList/MovieList";
-import Home from "../Home/Home";
+import { Navbar, Nav } from "react-bootstrap";
 import "./Navigation.css";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "./flickpick.png";
 import Search from "../Search/Search";
 
@@ -49,16 +47,9 @@ class Navigation extends Component {
               ) : (
                 " "
               )}
-
-              <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Sign In</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Log In</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Log Out</NavDropdown.Item>
-                <NavDropdown.Divider />
-                {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
-              </NavDropdown>
-
-              <div class="right"><Search></Search></div>
+              <div class="right">
+                <Search />
+              </div>
             </Nav>
             <Nav>
               {/* <Nav.Link href="#deets">More deets</Nav.Link> */}

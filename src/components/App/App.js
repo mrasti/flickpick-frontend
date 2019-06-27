@@ -6,7 +6,7 @@ import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "react-bootstrap";
 import axios from "axios";
 
