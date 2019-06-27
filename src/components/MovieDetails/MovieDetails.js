@@ -1,6 +1,7 @@
 // component about movie details
 import React, { Component } from "react";
 import FavoriteButton from "../../movFav.png";
+import RemoveButton from "../../movFavMinus.png";
 import Axios from "axios";
 class MovieInfo extends Component {
   constructor(props) {
@@ -37,12 +38,33 @@ class MovieInfo extends Component {
     const userId = localStorage.userId;
     const movieId = this.state.movie[0]._id;
     Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
-      if (user.data.favorites.includes(movieId)) {
+      let filteredArray = user.data.favorites.filter(favorites => {
+        return favorites._id === movieId;
+      });
+      if (filteredArray.length > 0) {
         console.log("already added");
       } else
         Axios.put(`http://localhost:3000/api/user/add/${userId}/${movieId}`, {
           headers: { Authorization: "bearer " + localStorage.token }
         }).then(res => console.log(res));
+    });
+  };
+  handleRemoveFavorite = e => {
+    const userId = localStorage.userId;
+    const movieId = this.state.movie[0]._id;
+    Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
+      let filteredArray = user.data.favorites.filter(favorites => {
+        return favorites._id === movieId;
+      });
+      if (filteredArray.length === 0) {
+        console.log("doesn't exist");
+      } else
+        Axios.put(
+          `http://localhost:3000/api/user/remove/${userId}/${movieId}`,
+          {
+            headers: { Authorization: "bearer " + localStorage.token }
+          }
+        ).then(res => console.log(res));
     });
   };
 
@@ -90,6 +112,12 @@ class MovieInfo extends Component {
                   className="favoriteButton"
                 >
                   <img src={FavoriteButton} />
+                </button>
+                <button
+                  onClick={this.handleRemoveFavorite}
+                  className="favoriteButton"
+                >
+                  <img src={RemoveButton} />
                 </button>
               </p>
             </article>
