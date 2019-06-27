@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
+import Logout from "../Logout/Logout";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
 import { Route, Link, Switch, Redirect } from "react-router-dom";
@@ -40,9 +41,11 @@ class App extends Component {
     this.setState({
       email: "",
       password: "",
-      isLoggedIn: false
+      isLoggedIn: false,
+      userId: ""
     });
     localStorage.clear();
+    this.goHome();
   }
   handleInput(e) {
     this.setState({
@@ -61,6 +64,7 @@ class App extends Component {
         this.setState({ isLoggedIn: true });
         this.setState({ userId: response.data.userId });
       })
+      .then(() => this.goToMovies())
       .catch(err => console.log(err));
   }
   handleLogIn(e) {
@@ -76,15 +80,22 @@ class App extends Component {
         this.setState({ isLoggedIn: true });
         this.setState({ userId: response.data.userId });
       })
+      .then(() => this.goToMovies())
       .catch(err => console.log(err));
   }
   setInfo(id) {
     this.setState({ id: id });
   }
+  goHome = () => {
+    this.props.history.push("/");
+  };
+  goToMovies = () => {
+    this.props.history.push("/movies");
+  };
   render() {
     return (
       <div>
-        <Navigation />
+        <Navigation {...this.state} logout={this.handleLogOut} />
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
         <Route
@@ -120,6 +131,17 @@ class App extends Component {
                 handleInput={this.handleInput}
                 handleLogIn={this.handleLogIn}
                 {...props}
+              />
+            );
+          }}
+        />
+        <Route
+          path="/logout"
+          render={props => {
+            return (
+              <Logout
+                isLoggedIn={this.state.isLoggedIn}
+                handleLogOut={this.handleLogOut}
               />
             );
           }}

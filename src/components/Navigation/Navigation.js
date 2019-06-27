@@ -18,21 +18,40 @@ class Navigation extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Link to="/login" className="nav-link">
-                Login
-              </Link>
+              {/* <Link to="/login" className="nav-link">
+                Log In
+              </Link> */}
               <Link to="/movies" className="nav-link">
                 Movies
               </Link>
               {/* <Nav.Link to='/movies'>Movies</Nav.Link> */}
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
+
+              {!this.props.isLoggedIn ? (
+                <Link to="/signup" className="nav-link">
+                  Sign Up
+                </Link>
+              ) : (
+                " "
+              )}
+              {!this.props.isLoggedIn ? (
+                <Link to="/login" className="nav-link">
+                  Log In
+                </Link>
+              ) : (
+                " "
+              )}
+              {this.props.isLoggedIn ? (
+                <Link to="/" onClick={this.props.logout} className="nav-link">
+                  Log Out
+                </Link>
+              ) : (
+                " "
+              )}
+
+              <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Sign In</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Log In</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Log Out</NavDropdown.Item>
                 <NavDropdown.Divider />
                 {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>

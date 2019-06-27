@@ -4,9 +4,9 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h2>Sign Up</h2>
-
         <form>
+          <h2>Sign Up</h2>
+
           <div>
             <p>Email</p>
             <input
