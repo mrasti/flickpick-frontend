@@ -24,7 +24,7 @@ class MovieList extends Component {
     let list = this.state.movieInfo.map((item, index) => {
       console.log(item);
       return (
-        <div key={index}>
+        <div className="movie-list" key={index}>
           <Movie
             title={item.title}
             overview={item.overview}

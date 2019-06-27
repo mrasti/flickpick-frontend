@@ -25,6 +25,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+.movie-list {
+  margin: 20px auto;
+}
 
 /* Movie details */
 .movieDetails {
