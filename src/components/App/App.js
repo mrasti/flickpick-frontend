@@ -3,7 +3,8 @@ import "./App.css";
 import Home from "../Home/Home";
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
-import Genres from "../GenreList/GenreList";
+import GenresList from "../GenreList/GenreList";
+import Genre from "../Genre/Genre";
 import Signup from "../Signup/Signup";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
@@ -98,7 +99,8 @@ class App extends Component {
         <Navigation {...this.state} logout={this.handleLogOut} />
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
-        <Route path="/genres" exact component={Genres} />
+        {/* For all genres listing */}
+        <Route path="/genres" exact component={GenresList} /> 
         <Route
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
@@ -107,6 +109,13 @@ class App extends Component {
           path="/movieinfo/:id"
           render={props => (
             <MovieInfo setInfo={this.setInfo} {...props} {...this.state} />
+          )}
+        />
+        {/* For individual genres list */}
+        <Route
+          path="/genres/id/:id"
+          render={props => (
+            <Genre setInfo={this.setInfo} {...props} {...this.state} />
           )}
         />
 

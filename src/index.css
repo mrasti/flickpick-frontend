@@ -67,6 +67,13 @@
     /* background-color: blue; */
 }
 
+.filmstripBckgrnd div:nth-child(even){
+    background-color: #2a42ee;
+    /* background-color: blue; */
+}
+
+
+
 .AppMain{
     align-items: center;
 
