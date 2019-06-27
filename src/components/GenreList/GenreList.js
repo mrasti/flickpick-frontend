@@ -14,7 +14,7 @@ class GenreList extends Component {
         }
     }
     componentDidMount() {
-        const movieurl = "http://localhost:3000/api/movies/";
+        const movieurl = "http://localhost:3000/api/movies/allmovies";
         Axios.get(movieurl).then(
             res=>{
                 console.log(res)
