@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
 import Genres from "../GenreList/GenreList";
+import SearchList from "../Search/SearchList"
 import Signup from "../Signup/Signup";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
@@ -103,6 +104,7 @@ class App extends Component {
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
         />
+        <Route path="/search" render={props =><SearchList></SearchList>}/>
         <Route
           path="/movieinfo/:id"
           render={props => (
