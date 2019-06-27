@@ -1,40 +1,12 @@
 import React, { Component } from "react";
-import Movie from "../Movie/Movie";
-import Axios from "axios";
 import ResponsiveEmbed from "react-bootstrap/ResponsiveEmbed";
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      movieInfo: []
-    };
   }
-  componentDidMount() {
-    const url = "http://localhost:3000/api/movies/";
-    Axios.get(url).then(res => {
-      console.log(res.data.results);
-      let results = res.data.results;
-      this.setState(prevState => ({
-        movieInfo: results
-      }));
-      // console.log(movieInfo)
-    });
-  }
+
   render() {
-    let list = this.state.movieInfo.map((item, index) => {
-      console.log(item);
-      return (
-        <div key={index}>
-          <Movie
-            title={item.title}
-            overview={item.overview}
-            posterImage={item.posterImage}
-            id={item.id}
-          />
-        </div>
-      );
-    });
     return (
       <div className="homeTop">
         <div style={{ width: "100%", height: "auto" }}>
@@ -45,8 +17,6 @@ class Home extends Component {
             />
           </ResponsiveEmbed>
         </div>
-
-        {/* {list} */}
       </div>
     );
   }
