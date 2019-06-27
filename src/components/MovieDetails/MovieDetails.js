@@ -34,11 +34,16 @@ class MovieInfo extends Component {
   }
   handleAddFavorite = e => {
     e.preventDefault();
-    const userId = this.props.userId;
+    const userId = localStorage.userId;
     const movieId = this.state.movie[0]._id;
-    Axios.put(`http://localhost:3000/api/user/add/${userId}/${movieId}`, {
-      headers: { Authorization: "bearer " + localStorage.token }
-    }).then(res => res.json());
+    Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
+      if (user.data.favorites.includes(movieId)) {
+        console.log("already added");
+      } else
+        Axios.put(`http://localhost:3000/api/user/add/${userId}/${movieId}`, {
+          headers: { Authorization: "bearer " + localStorage.token }
+        }).then(res => console.log(res));
+    });
   };
 
   render() {
