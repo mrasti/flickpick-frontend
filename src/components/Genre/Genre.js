@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import Movie from "../Movie/Movie";
-// import Filmstrip from "../filmstrip.png";
-import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 class Genre extends Component {
   constructor(props) {
@@ -23,11 +20,7 @@ class Genre extends Component {
   }
   render() {
     let genreId = this.props.match.params.id;
-    console.log(genreId);
-    console.log(typeof genreId);
     let list = this.state.movieInfo.map((item, index) => {
-      // console.log(item);
-
       if (item.genre_ids.includes(Number(genreId))) {
         return (
           <div className="movie-list" key={index}>
@@ -41,6 +34,7 @@ class Genre extends Component {
           </div>
         );
       }
+      return "";
     });
     return <div className="columns">{list}</div>;
   }

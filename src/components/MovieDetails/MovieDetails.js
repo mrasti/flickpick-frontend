@@ -42,11 +42,14 @@ class MovieInfo extends Component {
         return favorites._id === movieId;
       });
       if (filteredArray.length > 0) {
-        console.log("already added");
       } else
-        Axios.put(`http://localhost:3000/api/user/add/${userId}/${movieId}`, {
-          headers: { Authorization: "bearer " + localStorage.token }
-        }).then(res => console.log(res));
+        Axios.put(
+          `http://localhost:3000/api/user/add/${userId}/${movieId}`,
+          {},
+          {
+            headers: { Authorization: "Bearer " + localStorage.token }
+          }
+        );
     });
   };
   handleRemoveFavorite = e => {
@@ -57,14 +60,14 @@ class MovieInfo extends Component {
         return favorites._id === movieId;
       });
       if (filteredArray.length === 0) {
-        console.log("doesn't exist");
       } else
         Axios.put(
           `http://localhost:3000/api/user/remove/${userId}/${movieId}`,
+          {},
           {
             headers: { Authorization: "bearer " + localStorage.token }
           }
-        ).then(res => console.log(res));
+        );
     });
   };
 
@@ -77,6 +80,7 @@ class MovieInfo extends Component {
           return (
             <div>
               <iframe
+                title={index}
                 width="560"
                 height="315"
                 src={youtubeLink}
@@ -89,8 +93,6 @@ class MovieInfo extends Component {
           return <p>There is no video available</p>;
         }
       };
-      //find the genres
-      let genresListing = this.state.genres.map((item, index) => {});
 
       //returning the movie information
       let newYear = item.release_date;
@@ -111,13 +113,13 @@ class MovieInfo extends Component {
                   onClick={this.handleAddFavorite}
                   className="favoriteButton"
                 >
-                  <img src={FavoriteButton} />
+                  <img src={FavoriteButton} alt="favorite-button" />
                 </button>
                 <button
                   onClick={this.handleRemoveFavorite}
                   className="favoriteButton"
                 >
-                  <img src={RemoveButton} />
+                  <img src={RemoveButton} alt="remove-button" />
                 </button>
               </p>
             </article>
