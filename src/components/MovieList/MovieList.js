@@ -22,7 +22,13 @@ class MovieList extends Component {
 
   render() {
     // let list = this.state.movieInfo.map((item, index) => {
-    let list = this.props.userInfo.searchList.map((item, index) => {
+    const moviesData =
+      this.props.userInfo.searchList.length > 0
+        ? this.props.userInfo.searchList
+        : this.state.movieInfo;
+    console.log(moviesData);
+    // let list = this.props.userInfo.searchList.map((item, index) => {
+    let list = moviesData.map((item, index) => {
       return (
         <div className="movie-list" key={index}>
           <Movie

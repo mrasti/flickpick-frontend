@@ -10,7 +10,7 @@ import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
 import FavoriteList from "../FavoriteList/FavoriteList";
 import Search from "../Search/Search";
-import SearchList from "../Search/SearchList"
+import SearchList from "../Search/SearchList";
 
 import { Route } from "react-router-dom";
 import "react-bootstrap";
@@ -24,7 +24,7 @@ class App extends Component {
       email: "",
       isLoggedIn: false,
       userId: localStorage.userId,
-      searchList: [],
+      searchList: []
     };
   }
   componentDidMount() {
@@ -101,37 +101,44 @@ class App extends Component {
     this.props.history.push("/movies");
   };
 
-  updateSearchResults(searchQuery){
-    const url = 'http://localhost:3000/api/movies/search/';
-    Axios.get(url + searchQuery).then(res => {
-        this.setState({searchList: res.data.results})
-        console.log(this.state.searchList)
-    });
-  };
+  updateSearchResults(searchQuery) {
+    const url = "http://localhost:3000/api/movies/search/";
+
+    console.log(searchQuery);
+    if (searchQuery.length > 0) {
+      Axios.get(url + searchQuery).then(res => {
+        this.setState({ searchList: res.data.results });
+        console.log(this.state.searchList);
+      });
+    } else {
+      this.setState({ searchList: [] });
+    }
+  }
 
   render() {
     return (
       <div>
-        <Navigation {...this.state} logout={this.handleLogOut} updateSearchResults={this.updateSearchResults}/>
+        <Navigation
+          {...this.state}
+          logout={this.handleLogOut}
+          updateSearchResults={this.updateSearchResults}
+        />
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
         {/* For all genres listing */}
-        <Route path="/genres" exact component={GenresList} /> 
+        <Route path="/genres" exact component={GenresList} />
         <Route
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
         />
         {/* <Route 
           path="/search" 
-          render={props =><SearchList></SearchList>}/> //////////////////////*/} 
-{/* 
+          render={props =><SearchList></SearchList>}/> //////////////////////*/}
+        {/* 
                 <div>
 
                   <Search triggerParentUpdate={this.updateSearchResults} />
                 </div> */}
-
-
-
 
         <Route
           path="/favorites"
