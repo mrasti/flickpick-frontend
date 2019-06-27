@@ -1,6 +1,7 @@
 // component about movie details
 import React, { Component } from "react";
 import FavoriteButton from "../../movFav.png";
+import RemoveButton from "../../movFavMinus.png";
 import Axios from "axios";
 class MovieInfo extends Component {
   constructor(props) {
@@ -34,11 +35,48 @@ class MovieInfo extends Component {
   }
   handleAddFavorite = e => {
     e.preventDefault();
-    const userId = this.props.userId;
+    const userId = localStorage.userId;
     const movieId = this.state.movie[0]._id;
-    Axios.put(`http://localhost:3000/api/user/add/${userId}/${movieId}`, {
-      headers: { Authorization: "bearer " + localStorage.token }
-    }).then(res => res.json());
+    if (!userId) {
+      return this.props.history.push("/login");
+    } else {
+      Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
+        let filteredArray = user.data.favorites.filter(favorites => {
+          return favorites._id === movieId;
+        });
+        if (filteredArray.length > 0) {
+        } else
+          Axios.put(
+            `http://localhost:3000/api/user/add/${userId}/${movieId}`,
+            {},
+            {
+              headers: { Authorization: "Bearer " + localStorage.token }
+            }
+          );
+      });
+    }
+  };
+  handleRemoveFavorite = e => {
+    const userId = localStorage.userId;
+    const movieId = this.state.movie[0]._id;
+    if (!userId) {
+      return this.props.history.push("/login");
+    } else {
+      Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
+        let filteredArray = user.data.favorites.filter(favorites => {
+          return favorites._id === movieId;
+        });
+        if (filteredArray.length === 0) {
+        } else
+          Axios.put(
+            `http://localhost:3000/api/user/remove/${userId}/${movieId}`,
+            {},
+            {
+              headers: { Authorization: "bearer " + localStorage.token }
+            }
+          );
+      });
+    }
   };
 
   render() {
@@ -50,6 +88,7 @@ class MovieInfo extends Component {
           return (
             <div>
               <iframe
+                title={index}
                 width="560"
                 height="315"
                 src={youtubeLink}
@@ -62,8 +101,6 @@ class MovieInfo extends Component {
           return <p>There is no video available</p>;
         }
       };
-      //find the genres
-      let genresListing = this.state.genres.map((item, index) => {});
 
       //returning the movie information
       let newYear = item.release_date;
@@ -84,7 +121,13 @@ class MovieInfo extends Component {
                   onClick={this.handleAddFavorite}
                   className="favoriteButton"
                 >
-                  <img src={FavoriteButton} />
+                  <img src={FavoriteButton} alt="favorite-button" />
+                </button>
+                <button
+                  onClick={this.handleRemoveFavorite}
+                  className="favoriteButton"
+                >
+                  <img src={RemoveButton} alt="remove-button" />
                 </button>
               </p>
             </article>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Form } from "react-bootstrap";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
 import Logo from "./flickpick.png";
@@ -59,6 +59,11 @@ class Navigation extends Component {
               {/* <Nav.Link eventKey={2} href="#memes">
         Dank memes
       </Nav.Link> */}
+
+<Form inline>
+              <Search className="justify-content-end"/>
+              </Form>
+            
             </Nav>
           </Navbar.Collapse>
         </Navbar>

@@ -3,12 +3,21 @@ import "./App.css";
 import Home from "../Home/Home";
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
+<<<<<<< HEAD
 import Genres from "../GenreList/GenreList";
 import SearchList from "../Search/SearchList"
 import Signup from "../Signup/Signup";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
 import Search from "../Search/Search";
+=======
+import GenresList from "../GenreList/GenreList";
+import Genre from "../Genre/Genre";
+import Signup from "../Signup/Signup";
+import Navigation from "../Navigation/Navigation";
+import MovieInfo from "../MovieDetails/MovieDetails";
+import FavoriteList from "../FavoriteList/FavoriteList";
+>>>>>>> master
 import { Route } from "react-router-dom";
 import "react-bootstrap";
 import axios from "axios";
@@ -112,8 +121,14 @@ class App extends Component {
         <Navigation {...this.state} logout={this.handleLogOut} updateSearchResults={this.updateSearchResults}/>
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
+<<<<<<< HEAD
         <Route path="/genres" exact component={Genres} />
         <Route               
+=======
+        {/* For all genres listing */}
+        <Route path="/genres" exact component={GenresList} /> 
+        <Route
+>>>>>>> master
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
         />
@@ -130,9 +145,20 @@ class App extends Component {
 
 
         <Route
+          path="/favorites"
+          render={props => <FavoriteList userId={this.state.userId} />}
+        />
+        <Route
           path="/movieinfo/:id"
           render={props => (
             <MovieInfo setInfo={this.setInfo} {...props} {...this.state} />
+          )}
+        />
+        {/* For individual genres list */}
+        <Route
+          path="/genres/id/:id"
+          render={props => (
+            <Genre setInfo={this.setInfo} {...props} {...this.state} />
           )}
         />
 

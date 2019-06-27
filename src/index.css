@@ -1,3 +1,6 @@
+body {
+  text-align: center;
+}
 /* navigation */
 .navBackground {
   background-color: #ffce00;
@@ -8,29 +11,33 @@
   height: 40px;
 }
 
+.navSearch{
+  position: relative;
+  justify-self: right;
+}
+
 /* Home */
 .homeTop {
   margin: 0;
 }
 
 .embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  
-  .embed-container iframe,
-  .embed-container object,
-  .embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 /* Favorite */
 .favoriteButton img {
@@ -62,14 +69,13 @@
 
 /* Genre Listing */
 
-.filmstripBckgrnd{
-    background-color: #ffce00;
-    /* background-color: blue; */
+.filmstripBckgrnd {
+  background-color: #ffce00;
+  /* background-color: blue; */
 }
 
-.AppMain{
-    align-items: center;
-
+.AppMain {
+  align-items: center;
 }
 
 /* Responsive */
@@ -81,10 +87,27 @@
 /* Tablet size */
 @media all and (min-width: 480px) and (max-width: 768px) {
   body {
-    background-color: #ffce00;
+    /* background-color: #ffce00; */
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .movieDetails {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
 /* smaller than iphone */
 @media all and (max-width: 480px) {
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .movieDetails {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

@@ -1,59 +1,43 @@
-import React, { Component } from 'react';
-import Movie from "../Movie/Movie";
+import React, { Component } from "react";
 import Axios from "axios";
-
+import Movie from "../Movie/Movie";
 
 class Genre extends Component {
-   
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-          movieInfo: [],
-          genre: []
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      movieInfo: []
+    };
+  }
+  componentDidMount() {
+    const url = "http://localhost:3000/api/movies/allmovies";
+    Axios.get(url).then(res => {
+      let results = res.data.results;
+      this.setState(prevState => ({
+        movieInfo: results
+      }));
+    });
+  }
+  render() {
+    let genreId = this.props.match.params.id;
+    let list = this.state.movieInfo.map((item, index) => {
+      if (item.genre_ids.includes(Number(genreId))) {
+        return (
+          <div className="movie-list" key={index}>
+            <Movie
+              title={item.title}
+              overview={item.overview}
+              posterImage={item.posterImage}
+              id={item.id}
+              userInfo={this.props.userInfo}
+            />
+          </div>
+        );
       }
-      componentDidMount() {
-        const url = "http://localhost:3000/api/movies/";
-        Axios.get(url).then(res => {
-          console.log(res.data.results);
-          let results = res.data.results;
-          this.setState(prevState => ({
-            movieInfo: results
-          }));
-          // console.log(movieInfo)
-        });
-
-        const genreurl = "http://localhost:3000/api/genre/";
-        Axios.get(genreurl).then(res => {
-          console.log(res.data);
-          console.log(typeof res.data);
-          let results = res.data;
-          this.setState(prevState => ({
-            genre: results
-          }));
-        });
-      }
-      render() {
-        let list = this.state.movieInfo.map((item, index) => {
-          console.log(item);
-          return (
-            <div key={index}>
-              <Movie
-                title={item.title}
-                overview={item.overview}
-                posterImage={item.posterImage}
-                id={item.id}
-                userInfo={this.props.userInfo}
-              />
-            </div>
-          );
-        });
-        return <div className="columns">{list}</div>;
-      }
-
-
-
+      return "";
+    });
+    return <div className="columns">{list}</div>;
+  }
 }
 
 export default Genre;
