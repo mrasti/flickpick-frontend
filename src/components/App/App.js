@@ -8,6 +8,7 @@ import Genre from "../Genre/Genre";
 import Signup from "../Signup/Signup";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
+import FavoriteList from "../FavoriteList/FavoriteList";
 import { Route } from "react-router-dom";
 import "react-bootstrap";
 import axios from "axios";
@@ -104,6 +105,10 @@ class App extends Component {
         <Route
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
+        />
+        <Route
+          path="/favorites"
+          render={props => <FavoriteList userId={this.state.userId} />}
         />
         <Route
           path="/movieinfo/:id"

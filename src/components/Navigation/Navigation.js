@@ -27,6 +27,13 @@ class Navigation extends Component {
               <Link to="/genres" className="nav-link">
                 Genres
               </Link>
+              {this.props.isLoggedIn ? (
+                <Link to="/favorites" className="nav-link">
+                  Favorites
+                </Link>
+              ) : (
+                " "
+              )}
               {/* <Nav.Link to='/movies'>Movies</Nav.Link> */}
 
               {!this.props.isLoggedIn ? (
@@ -50,6 +57,7 @@ class Navigation extends Component {
               ) : (
                 " "
               )}
+
               <div className="right">
                 <Search />
               </div>
