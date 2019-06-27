@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "../Home/Home";
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
+import Genres from "../GenreList/GenreList";
 import Signup from "../Signup/Signup";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
@@ -97,6 +98,7 @@ class App extends Component {
         <Navigation {...this.state} logout={this.handleLogOut} />
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
+        <Route path="/genres" exact component={Genres} />
         <Route
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
