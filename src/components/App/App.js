@@ -4,7 +4,6 @@ import Home from "../Home/Home";
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
-import Logout from "../Logout/Logout";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
 import { Route, Link, Switch, Redirect } from "react-router-dom";
@@ -131,17 +130,6 @@ class App extends Component {
                 handleInput={this.handleInput}
                 handleLogIn={this.handleLogIn}
                 {...props}
-              />
-            );
-          }}
-        />
-        <Route
-          path="/logout"
-          render={props => {
-            return (
-              <Logout
-                isLoggedIn={this.state.isLoggedIn}
-                handleLogOut={this.handleLogOut}
               />
             );
           }}
