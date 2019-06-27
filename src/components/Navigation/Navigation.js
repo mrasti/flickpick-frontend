@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, Nav, Form } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
 import Logo from "./flickpick.png";
@@ -24,6 +24,13 @@ class Navigation extends Component {
               <Link to="/genres" className="nav-link">
                 Genres
               </Link>
+              {this.props.isLoggedIn ? (
+                <Link to="/favorites" className="nav-link">
+                  Favorites
+                </Link>
+              ) : (
+                " "
+              )}
               {/* <Nav.Link to='/movies'>Movies</Nav.Link> */}
 
               {!this.props.isLoggedIn ? (
@@ -47,20 +54,16 @@ class Navigation extends Component {
               ) : (
                 " "
               )}
-              
-              {/* <div className="right">
-              </div> */}
+
+              <div className="right">
+                <Search />
+              </div>
             </Nav>
             <Nav>
               {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
               {/* <Nav.Link eventKey={2} href="#memes">
         Dank memes
       </Nav.Link> */}
-
-<Form inline>
-              <Search className="justify-content-end"/>
-              </Form>
-            
             </Nav>
           </Navbar.Collapse>
         </Navbar>
