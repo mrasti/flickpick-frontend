@@ -47,6 +47,13 @@ class Navigation extends Component {
               ) : (
                 " "
               )}
+              {this.props.isLoggedIn ? (
+                <Link to="/favorites" className="nav-link">
+                  Log Out
+                </Link>
+              ) : (
+                " "
+              )}
               <div class="right">
                 <Search />
               </div>
