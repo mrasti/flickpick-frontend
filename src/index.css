@@ -1,16 +1,16 @@
 /* navigation */
 .navBackground {
-    background-color: #ffce00;
-    color: #4e4e56;
+  background-color: #ffce00;
+  color: #4e4e56;
 }
 
 .navBackground img {
-    height: 40px;
+  height: 40px;
 }
 
 /* Home */
-.homeTop{
-    margin:0;
+.homeTop {
+  margin: 0;
 }
 
 .embed-container {
@@ -34,25 +34,25 @@
 
 /* Favorite */
 .favoriteButton img {
-/* width: 20px; */
+  /* width: 20px; */
 }
+
 /* Movie */
 
 /* Movie Listing*/
 .columns {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    justify-content: center;
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
+
 /* Movie details */
-.movieDetails{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+.movieDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .moviePoster img {
-    width: 75%;
+  width: 75%;
 }
 
 /* Genre */
@@ -72,21 +72,17 @@
 
 /* Responsive */
 
-
 /* Tablet size */
-@media all and (min-width: 768px) and (max-width: 1024px) { }
-
-
-/* Tablet size */
-@media all and (min-width: 480px) and (max-width: 768px) { 
-    body{
-        background-color: #ffce00;
-    
-    }
+@media all and (min-width: 768px) and (max-width: 1024px) {
 }
 
+/* Tablet size */
+@media all and (min-width: 480px) and (max-width: 768px) {
+  body {
+    background-color: #ffce00;
+  }
+}
 
 /* smaller than iphone */
 @media all and (max-width: 480px) {
-
 }

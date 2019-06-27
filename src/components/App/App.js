@@ -40,9 +40,11 @@ class App extends Component {
     this.setState({
       email: "",
       password: "",
-      isLoggedIn: false
+      isLoggedIn: false,
+      userId: ""
     });
     localStorage.clear();
+    this.goHome();
   }
   handleInput(e) {
     this.setState({
@@ -61,6 +63,7 @@ class App extends Component {
         this.setState({ isLoggedIn: true });
         this.setState({ userId: response.data.userId });
       })
+      .then(() => this.goToMovies())
       .catch(err => console.log(err));
   }
   handleLogIn(e) {
@@ -76,15 +79,22 @@ class App extends Component {
         this.setState({ isLoggedIn: true });
         this.setState({ userId: response.data.userId });
       })
+      .then(() => this.goToMovies())
       .catch(err => console.log(err));
   }
   setInfo(id) {
     this.setState({ id: id });
   }
+  goHome = () => {
+    this.props.history.push("/");
+  };
+  goToMovies = () => {
+    this.props.history.push("/movies");
+  };
   render() {
     return (
       <div>
-        <Navigation />
+        <Navigation {...this.state} logout={this.handleLogOut} />
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
         <Route
