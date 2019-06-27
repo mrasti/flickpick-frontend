@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
-import Movie from "../Movie/Movie";
+// import Movie from "../Movie/Movie";
+import Filmstrip from './filmstrip.png'
+import {Card, Button} from 'react-bootstrap';
+import {Route, Link} from "react-router-dom";
 
 class GenreList extends Component {
     constructor(props){
@@ -34,7 +37,7 @@ class GenreList extends Component {
         
       }
       render() {
-        let list = this.state.genre.map(item => {
+        let list = this.state.genre.map((item, index) => {
                 let movielist = this.state.movieRes.map((movieItem, index) => {
                     let findMovieImage = movieItem.genre_ids.map(genreResult =>{
                        if(16 === genreResult){
@@ -55,19 +58,33 @@ class GenreList extends Component {
                        }
                     })
                 })
-        //   return (
-        //     <div key={index}>
+          return (
+            <div key={index}>
+{/* Beginning of the card */}
 
-        //         <p>{item.name}</p>
-        //     </div>
-        //   );
+<Card style={{ width: '15rem' }}>
+  <Card.Img variant="top" src={Filmstrip} className="filmstripBckgrnd"/>
+  <Card.Body>
+    <Card.Title>{item.name}</Card.Title>
+    {/* <Card.Text>{this.props.overview}</Card.Text> */}
+    <Link to={"/movieinfo/" + this.props.id}>
+
+    <Button variant="primary">Enter here</Button>
+    </Link>
+    
+  </Card.Body>
+</Card>
+
+
+{/* End of the card */}
+            </div>
+          );
         });
 
 
         return (
         <div className="columns">
         {list}
-        this
         </div>)
       }
 }

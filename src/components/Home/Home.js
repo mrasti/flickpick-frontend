@@ -38,8 +38,11 @@ class Home extends Component {
     // });
     return (
       <div className="homeTop">
-          TEST
-          <Genre></Genre>
+
+<div className='embed-container'><iframe src='https://player.vimeo.com/video/344644642' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+
+
+          {/* <Genre></Genre> */}
           {/* <ResponsiveEmbed>
             <embed
             //   type="image/svg+xml"
