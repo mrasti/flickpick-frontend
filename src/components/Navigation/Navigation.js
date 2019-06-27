@@ -51,7 +51,7 @@ class Navigation extends Component {
                 " "
               )}
               <div className="right">
-                <Search />
+                <Search {...this.props}/>
               </div>
             </Nav>
             <Nav>

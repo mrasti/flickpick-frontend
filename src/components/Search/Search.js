@@ -7,25 +7,36 @@ class Search extends Component {
     super(props);
 
     this.state = {
-        movieList: '', 
+        searchQuery: '', 
       };
     
-    this.search = this.search.bind(this);
+    this.handleQuery = this.handleQuery.bind(this);
   }
 
-  search(evt){
-    const url = 'http://localhost:3000/api/movies/search/';
-    Axios.get(url + evt.target.value).then(res => {
-        this.setState({movieList: res.data.results})
-        console.log(this.state.movieList)
-    });
+  handleQuery(evt){
+    evt.preventDefault()
+    console.log(evt.target.value)
+    this.setState({searchQuery: evt.target.value})
+    this.props.updateSearchResults(this.state.searchQuery)
+    // const url = 'http://localhost:3000/api/movies/search/';
+    // Axios.get(url + evt.target.value).then(res => {
+    //     this.setState({searchQuery: res.data.results})
+    //     console.log(this.state.searchQuery)
+    // });
   }
   
   render() {
     return  <div>
-                <input type="text" placeholder=" Search by title ..." onChange={this.search}></input>
+                <input type="text" value={this.state.searchQuery} placeholder=" Search by title ..." onChange={this.handleQuery}></input>
             </div>
   }
+
+//   render() {
+//     return  <div>
+//                 <input type="text" placeholder=" Search by title ..." onChange={this.props.triggerParentUpdate}></input>
+//             </div>
+//   }
+
 }
 
 export default Search;

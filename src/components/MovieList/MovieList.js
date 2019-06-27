@@ -21,7 +21,8 @@ class MovieList extends Component {
   }
 
   render() {
-    let list = this.state.movieInfo.map((item, index) => {
+    // let list = this.state.movieInfo.map((item, index) => {
+    let list = this.props.userInfo.searchList.map((item, index) => {
       return (
         <div className="movie-list" key={index}>
           <Movie
