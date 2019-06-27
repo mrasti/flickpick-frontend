@@ -9,6 +9,7 @@ import Signup from "../Signup/Signup";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
 import FavoriteList from "../FavoriteList/FavoriteList";
+import DeleteUser from "../DeleteUser/DeleteUser";
 import Search from "../Search/Search";
 import SearchList from "../Search/SearchList";
 
@@ -44,6 +45,21 @@ class App extends Component {
     this.handleSignUp = this.handleSignUp.bind(this);
     this.updateSearchResults = this.updateSearchResults.bind(this);
   }
+  deleteUser = e => {
+    e.preventDefault();
+    let userId = localStorage.userId;
+    const url = `http://localhost:3000/api/user/${userId}`;
+    Axios.delete(url).then(_ => {
+      this.setState({
+        email: "",
+        password: "",
+        isLoggedIn: false,
+        userId: ""
+      });
+      localStorage.clear();
+      this.goHome();
+    });
+  };
   handleLogOut(e) {
     e.preventDefault();
     this.setState({
@@ -183,6 +199,12 @@ class App extends Component {
                 {...props}
               />
             );
+          }}
+        />
+        <Route
+          path="/deleteuser"
+          render={props => {
+            return <DeleteUser deleteuser={this.deleteUser} {...props} />;
           }}
         />
       </div>

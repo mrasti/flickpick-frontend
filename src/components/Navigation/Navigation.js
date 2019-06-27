@@ -54,8 +54,15 @@ class Navigation extends Component {
               ) : (
                 " "
               )}
+              {this.props.isLoggedIn ? (
+                <Link to="/deleteuser" className="nav-link">
+                  Delete Account
+                </Link>
+              ) : (
+                " "
+              )}
               <div className="right">
-                <Search {...this.props}/>
+                <Search {...this.props} />
               </div>
             </Nav>
             <Nav>
