@@ -11,6 +11,11 @@ body {
   height: 40px;
 }
 
+.navSearch{
+  position: relative;
+  justify-self: right;
+}
+
 /* Home */
 .homeTop {
   margin: 0;
@@ -82,10 +87,27 @@ body {
 /* Tablet size */
 @media all and (min-width: 480px) and (max-width: 768px) {
   body {
-    background-color: #ffce00;
+    /* background-color: #ffce00; */
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .movieDetails {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
 /* smaller than iphone */
 @media all and (max-width: 480px) {
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .movieDetails {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
