@@ -9,9 +9,13 @@ import Signup from "../Signup/Signup";
 import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
 import FavoriteList from "../FavoriteList/FavoriteList";
+import Search from "../Search/Search";
+import SearchList from "../Search/SearchList"
+
 import { Route } from "react-router-dom";
 import "react-bootstrap";
 import axios from "axios";
+import Axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +23,8 @@ class App extends Component {
     this.state = {
       email: "",
       isLoggedIn: false,
-      userId: localStorage.userId
+      userId: localStorage.userId,
+      searchList: [],
     };
   }
   componentDidMount() {
@@ -37,6 +42,7 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleLogIn = this.handleLogIn.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
+    this.updateSearchResults = this.updateSearchResults.bind(this);
   }
   handleLogOut(e) {
     e.preventDefault();
@@ -94,10 +100,19 @@ class App extends Component {
   goToMovies = () => {
     this.props.history.push("/movies");
   };
+
+  updateSearchResults(searchQuery){
+    const url = 'http://localhost:3000/api/movies/search/';
+    Axios.get(url + searchQuery).then(res => {
+        this.setState({searchList: res.data.results})
+        console.log(this.state.searchList)
+    });
+  };
+
   render() {
     return (
       <div>
-        <Navigation {...this.state} logout={this.handleLogOut} />
+        <Navigation {...this.state} logout={this.handleLogOut} updateSearchResults={this.updateSearchResults}/>
         {/* Navigation bar (Responsive) */}
         <Route path="/" exact component={Home} />
         {/* For all genres listing */}
@@ -106,6 +121,18 @@ class App extends Component {
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
         />
+        {/* <Route 
+          path="/search" 
+          render={props =><SearchList></SearchList>}/> //////////////////////*/} 
+{/* 
+                <div>
+
+                  <Search triggerParentUpdate={this.updateSearchResults} />
+                </div> */}
+
+
+
+
         <Route
           path="/favorites"
           render={props => <FavoriteList userId={this.state.userId} />}

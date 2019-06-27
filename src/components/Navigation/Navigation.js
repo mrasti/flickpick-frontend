@@ -54,9 +54,14 @@ class Navigation extends Component {
               ) : (
                 " "
               )}
+<<<<<<< HEAD
 
               <div className="right">
                 <Search />
+=======
+              <div className="right">
+                <Search {...this.props}/>
+>>>>>>> melika-branch2
               </div>
             </Nav>
             <Nav>
