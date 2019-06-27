@@ -7,7 +7,7 @@ class Home extends Component {
     return (
       <div className="homeTop">
           
-<div className='embed-container'><iframe src='https://player.vimeo.com/video/344644642' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+<div className='embed-container'><iframe src='https://player.vimeo.com/video/344644642' frameBorder='0' webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen></iframe></div>
       </div>
     );
   }
