@@ -37,38 +37,46 @@ class MovieInfo extends Component {
     e.preventDefault();
     const userId = localStorage.userId;
     const movieId = this.state.movie[0]._id;
-    Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
-      let filteredArray = user.data.favorites.filter(favorites => {
-        return favorites._id === movieId;
+    if (!userId) {
+      return this.props.history.push("/login");
+    } else {
+      Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
+        let filteredArray = user.data.favorites.filter(favorites => {
+          return favorites._id === movieId;
+        });
+        if (filteredArray.length > 0) {
+        } else
+          Axios.put(
+            `http://localhost:3000/api/user/add/${userId}/${movieId}`,
+            {},
+            {
+              headers: { Authorization: "Bearer " + localStorage.token }
+            }
+          );
       });
-      if (filteredArray.length > 0) {
-      } else
-        Axios.put(
-          `http://localhost:3000/api/user/add/${userId}/${movieId}`,
-          {},
-          {
-            headers: { Authorization: "Bearer " + localStorage.token }
-          }
-        );
-    });
+    }
   };
   handleRemoveFavorite = e => {
     const userId = localStorage.userId;
     const movieId = this.state.movie[0]._id;
-    Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
-      let filteredArray = user.data.favorites.filter(favorites => {
-        return favorites._id === movieId;
+    if (!userId) {
+      return this.props.history.push("/login");
+    } else {
+      Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
+        let filteredArray = user.data.favorites.filter(favorites => {
+          return favorites._id === movieId;
+        });
+        if (filteredArray.length === 0) {
+        } else
+          Axios.put(
+            `http://localhost:3000/api/user/remove/${userId}/${movieId}`,
+            {},
+            {
+              headers: { Authorization: "bearer " + localStorage.token }
+            }
+          );
       });
-      if (filteredArray.length === 0) {
-      } else
-        Axios.put(
-          `http://localhost:3000/api/user/remove/${userId}/${movieId}`,
-          {},
-          {
-            headers: { Authorization: "bearer " + localStorage.token }
-          }
-        );
-    });
+    }
   };
 
   render() {
