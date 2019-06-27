@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700|Roboto+Condensed:400,700,700i|Roboto:400,500,700,900&display=swap');
+
 body {
   text-align: center;
 }
 /* navigation */
 .navBackground {
   background-color: #ffce00;
-  color: #4e4e56;
+  color: #19191a;
 }
 
 .navBackground img {
@@ -78,7 +80,61 @@ body {
   align-items: center;
 }
 
+.Signup{
+  width: 300px;
+  background-color: white;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 10px;
+}
+.Signup H2{
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.Signup span{
+  color: #2a42ee;
+  font-weight: 900;
+}
+.Signup input{
+  border: 1px solid rgb(168, 168, 168);
+}
+.Signup input[type="Submit"] {
+  background-color: #2a42ee;
+  margin-top: 10px;
+  /* padding: 15px; */
+  padding-top: 5px;
+  padding-bottom: 10px;
+ width: 60px;
+  color:white;
+  /* vertical-align: middle; */
+}
+
+.input-field{
+  margin-bottom:5px;
+}
+
 /* Responsive */
+.vimeo-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.vimeo-wrapper iframe {
+  width: 100vw;
+  height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+  min-height: 100vh;
+  min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /* Tablet size */
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -111,3 +167,9 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+/* 
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Oswald', sans-serif;
+ */
