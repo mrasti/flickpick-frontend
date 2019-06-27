@@ -69,6 +69,7 @@ class App extends Component {
       })
       .then(response => {
         localStorage.token = response.data.token;
+        localStorage.userId = response.data.userId;
         this.setState({ isLoggedIn: true });
         this.setState({ userId: response.data.userId });
       })
