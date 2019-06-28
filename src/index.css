@@ -143,6 +143,36 @@ body {
   color: #2a42ee;
   font-weight: 900;
 }
+
+.About{
+  width: 75%;
+  background-color: white;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.About H2{
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  word-spacing: -7px;
+  text-align: center;
+}
+
+.About H3, H4{
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: left;
+}
+
+
+.About span{
+  color: #2a42ee;
+  font-weight: 900;
+}
 .Signup input{
   border: 1px solid rgb(168, 168, 168);
 }
