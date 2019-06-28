@@ -40,7 +40,7 @@ class GenreList extends Component {
               <Card.Text>{this.props.overview}</Card.Text>
               <Link to={"/genres/id/" + item.id}>
                 <Button id="genre-button" variant="primary">
-                  Enter here
+                  View Movies
                 </Button>
               </Link>
             </Card.Body>
