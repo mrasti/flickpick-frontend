@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Axios from "axios";
-// import Movie from "../Movie/Movie";
 import Filmstrip from "./filmstrip.png";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -23,21 +22,9 @@ class GenreList extends Component {
     });
     //end of get Genres from Axios
   }
-  // idSetting = function(item){
-  //   let newId = item.id
-  //       this.setState(prevState => ({
-  //         id: newId
-  //       }));
-  // }
 
   render() {
     let list = this.state.genre.map((item, index) => {
-      // console.log(item)
-
-      // console.log(newId)
-      // this.setState(prevState => {
-      //   id: newId,
-      // })
       return (
         <div key={index} className="movie-list">
           {/* Beginning of the card */}

@@ -145,12 +145,7 @@ class MovieInfo extends Component {
         </div>
       );
     });
-    return (
-      <div>
-        {/* <button onClick={this.goHome}> Return to Movies</button> */}
-        {movieDetails}
-      </div>
-    );
+    return <div>{movieDetails}</div>;
   }
 }
 

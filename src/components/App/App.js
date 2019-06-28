@@ -10,8 +10,6 @@ import Navigation from "../Navigation/Navigation";
 import MovieInfo from "../MovieDetails/MovieDetails";
 import FavoriteList from "../FavoriteList/FavoriteList";
 import DeleteUser from "../DeleteUser/DeleteUser";
-import Search from "../Search/Search";
-import SearchList from "../Search/SearchList";
 
 import { Route } from "react-router-dom";
 import "react-bootstrap";
@@ -121,11 +119,9 @@ class App extends Component {
   updateSearchResults(searchQuery) {
     const url = "http://localhost:3000/api/movies/search/";
 
-    console.log(searchQuery);
     if (searchQuery.length > 0) {
       Axios.get(url + searchQuery).then(res => {
         this.setState({ searchList: res.data.results });
-        console.log(this.state.searchList);
       });
     } else {
       this.setState({ searchList: [] });
@@ -148,15 +144,6 @@ class App extends Component {
           path="/movies"
           render={props => <Movies userInfo={this.state} />}
         />
-        {/* <Route 
-          path="/search" 
-          render={props =><SearchList></SearchList>}/> //////////////////////*/}
-        {/* 
-                <div>
-
-                  <Search triggerParentUpdate={this.updateSearchResults} />
-                </div> */}
-
         <Route
           path="/favorites"
           render={props => <FavoriteList userId={this.state.userId} />}

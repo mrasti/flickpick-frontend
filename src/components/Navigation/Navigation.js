@@ -11,7 +11,6 @@ class Navigation extends Component {
       <div>
         {/* Start of Navigation */}
         <Navbar collapseOnSelect expand="lg" className="navBackground">
-          {/* <Navbar.Brand href="/"><img src={Logo} alt="Logo"></img></Navbar.Brand> */}
           <Link to="/">
             <img src={Logo} alt="Logo" />
           </Link>
@@ -31,7 +30,6 @@ class Navigation extends Component {
               ) : (
                 " "
               )}
-              {/* <Nav.Link to='/movies'>Movies</Nav.Link> */}
 
               {!this.props.isLoggedIn ? (
                 <Link to="/signup" className="nav-link">
@@ -65,12 +63,7 @@ class Navigation extends Component {
                 <Search {...this.props} />
               </div>
             </Nav>
-            <Nav>
-              {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
-              {/* <Nav.Link eventKey={2} href="#memes">
-        Dank memes
-      </Nav.Link> */}
-            </Nav>
+            <Nav />
           </Navbar.Collapse>
         </Navbar>
 

@@ -10,14 +10,10 @@ class Movie extends Component {
     }`;
     return (
       <div>
-        {/* <Card style={{ width: '18rem' }}> */}
         <Card id="movie-card">
-          {/* <Card id="hate-bootstrap" style={{ width: "15rem" }}> */}
-
           <Card.Img variant="top" src={imgName} />
           <Card.Body>
             <Card.Title id="card-title">{this.props.title}</Card.Title>
-            {/* <Card.Text>{this.props.overview}</Card.Text> */}
             <Link to={"/movieinfo/" + this.props.id}>
               <Button id="movie-button" variant="primary">
                 View Details

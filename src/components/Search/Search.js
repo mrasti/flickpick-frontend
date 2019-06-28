@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Axios from "axios";
 import "./Search.css";
 
 class Search extends Component {
@@ -15,16 +14,9 @@ class Search extends Component {
 
   handleQuery(evt) {
     evt.preventDefault();
-    console.log(evt.target.value);
     this.setState({ searchQuery: evt.target.value }, _ =>
       this.props.updateSearchResults(this.state.searchQuery)
     );
-    // this.props.updateSearchResults(this.state.searchQuery)
-    // const url = 'http://localhost:3000/api/movies/search/';
-    // Axios.get(url + evt.target.value).then(res => {
-    //     this.setState({searchQuery: res.data.results})
-    //     console.log(this.state.searchQuery)
-    // });
   }
 
   render() {
@@ -39,12 +31,6 @@ class Search extends Component {
       </div>
     );
   }
-
-  //   render() {
-  //     return  <div>
-  //                 <input type="text" placeholder=" Search by title ..." onChange={this.props.triggerParentUpdate}></input>
-  //             </div>
-  //   }
 }
 
 export default Search;
