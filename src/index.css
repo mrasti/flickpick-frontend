@@ -161,6 +161,12 @@ body {
   text-align: center;
 }
 
+.About img{
+  width: 90%;
+}
+.About .Centered{
+  text-align: center;
+}
 .About H3, H4{
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
