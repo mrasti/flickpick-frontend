@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700|Roboto+Condensed:400,700,700i|Roboto:400,500,700,900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600,700|Roboto+Condensed:400,700,700i|Roboto:400,500,700,900&display=swap");
 
 body {
   text-align: center;
@@ -76,13 +76,6 @@ body {
   height: 100%;
 }
 
-/* Favorite */
-.favoriteButton img {
-  /* width: 20px; */
-}
-
-/* Movie */
-
 /* Movie Listing*/
 .columns {
   display: grid;
@@ -103,16 +96,15 @@ body {
 }
 
 /* Genre */
-.genre{
-  font-family: 'Roboto', sans-serif;
+.genre {
+  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   font-weight: 900;
   box-shadow: 0 7px 5px rgba(44, 44, 44, 0.199);
 }
-.genre button{
+.genre button {
   padding-bottom: 15px;
-  height:40px;
-  
+  height: 40px;
 }
 
 /* Genre Listing */
@@ -126,24 +118,24 @@ body {
   align-items: center;
 }
 
-.Signup{
+.Signup {
   width: 300px;
   background-color: white;
   margin: 30px auto;
   padding: 25px;
   border-radius: 10px;
 }
-.Signup H2{
-  font-family: 'Roboto', sans-serif;
+.Signup h2 {
+  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   font-weight: 600;
   word-spacing: -7px;
 }
-.Signup span{
+.Signup span {
   color: #2a42ee;
   font-weight: 900;
 }
-.Signup input{
+.Signup input {
   border: 1px solid rgb(168, 168, 168);
 }
 .Signup input[type="Submit"] {
@@ -152,13 +144,13 @@ body {
   /* padding: 15px; */
   padding-top: 5px;
   padding-bottom: 10px;
- width: 60px;
-  color:white;
+  width: 60px;
+  color: white;
   /* vertical-align: middle; */
 }
 
-.input-field{
-  margin-bottom:5px;
+.input-field {
+  margin-bottom: 5px;
 }
 
 /* Responsive */
@@ -189,9 +181,6 @@ body {
 
 /* Tablet size */
 @media all and (min-width: 480px) and (max-width: 768px) {
-  body {
-    /* background-color: #ffce00; */
-  }
   .columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
