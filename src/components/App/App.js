@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import Home from "../Home/Home";
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
@@ -87,7 +86,7 @@ class App extends Component {
         this.setState({ isLoggedIn: true });
         this.setState({ userId: response.data.userId });
       })
-      .then(() => this.goToMovies())
+      .then(() => this.goToLogin())
       .catch(err => console.log(err));
   }
   handleLogIn(e) {
@@ -114,6 +113,9 @@ class App extends Component {
   };
   goToMovies = () => {
     this.props.history.push("/movies");
+  };
+  goToLogin = () => {
+    this.props.history.push("/login");
   };
 
   updateSearchResults(searchQuery) {
