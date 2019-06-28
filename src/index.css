@@ -1,6 +1,35 @@
 body {
   text-align: center;
+  background: #191716;
 }
+#movie-button,
+#genre-button {
+  padding: 0px 10px 1px 10px;
+  border-style: none;
+  background: #1d00ee;
+  color: #e6e6e6;
+  font-family: "Oswald";
+  font-size: 15px;
+}
+#movie-card,
+#genre-card {
+  width: 20rem;
+  border-style: none;
+  background: #ffce00;
+}
+#card-title,
+#genre-card-title {
+  font-size: 26px;
+  font-weight: bold;
+  font-family: "Oswald";
+}
+#movie-info {
+  padding: 30px;
+  font-family: "Oswald";
+  font-size: 20px;
+  color: white;
+}
+
 /* navigation */
 .navBackground {
   background-color: #ffce00;
@@ -11,7 +40,7 @@ body {
   height: 40px;
 }
 
-.navSearch{
+.navSearch {
   position: relative;
   justify-self: right;
 }

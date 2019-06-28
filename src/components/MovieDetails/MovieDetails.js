@@ -106,7 +106,7 @@ class MovieInfo extends Component {
       let newYear = item.release_date;
       let imgName = `https://image.tmdb.org/t/p/original/${item.posterImage}`;
       return (
-        <div className="movieDetails" key={index}>
+        <div className="movieDetails" id="movie-info" key={index}>
           <div className="moviePoster">
             <img src={imgName} alt="Movie Poster" />
           </div>

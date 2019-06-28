@@ -42,17 +42,19 @@ class GenreList extends Component {
         <div key={index} className="movie-list">
           {/* Beginning of the card */}
 
-          <Card style={{ width: "15rem" }}>
+          <Card id="genre-card" style={{ width: "15rem" }}>
             <Card.Img
               variant="top"
               src={Filmstrip}
               className="filmstripBckgrnd"
             />
             <Card.Body>
-              <Card.Title>{item.name}</Card.Title>
+              <Card.Title id="genre-card-title">{item.name}</Card.Title>
               <Card.Text>{this.props.overview}</Card.Text>
               <Link to={"/genres/id/" + item.id}>
-                <Button variant="primary">Enter here</Button>
+                <Button id="genre-button" variant="primary">
+                  Enter here
+                </Button>
               </Link>
             </Card.Body>
           </Card>
