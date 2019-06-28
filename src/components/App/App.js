@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Config from "../../config";
 import Home from "../Home/Home";
+import About from "../About/About"
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
 import GenresList from "../GenreList/GenreList";
@@ -139,6 +140,8 @@ class App extends Component {
           updateSearchResults={this.updateSearchResults}
         />
         <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        {/* For all genres listing */}
         <Route path="/genres" exact component={GenresList} />
         <Route
           path="/movies"
