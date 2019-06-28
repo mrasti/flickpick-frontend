@@ -16,6 +16,12 @@ Melika Rasti: https://github.com/mrasti
 
 React.js, React-bootstrap, React-router, Axios
 
+# Front End View
+
+<img src="https://raw.githubusercontent.com/ashanevs/flickpick/master/public/flickpick-splash.png" alt="flickpick-splash" width=500>
+
+<img src="https://raw.githubusercontent.com/ashanevs/flickpick/master/public/flickpick-movies.png" alt="fflickpick-movies" width=500>
+
 ## Links
 
 Back end github repository found at: https://github.com/ashanevs/flickpick-api
@@ -46,7 +52,7 @@ into your command line. You may be prompted to use an alternate port (as the bac
 
 From the home page, you have several options in the nav bar for site navigation.
 
-About features information about the project and its planning phase.
+About includes information about the project and its planning phase.
 
 Movie will generate a list of 21 random movies. While in the movie section, you can utilize the search bar to narrow results from the full database (note that at the time of writing, search only functions while in the movie section).
 
@@ -58,7 +64,7 @@ Sign up and log in function as expected. At the time of writing, you must log in
 
 # Project History
 
-The MVP goal of this project was to have an application that pulled movies from a database in order to view their details. We also intended to have them available in a sorted manner by genre.
+The MVP goal of this project was to have an application that pulled movies from a database(TMDb) in order to view their details. We also intended to have them available in a sorted manner by genre.
 
 Our reach goals were to create an authenticated user sign-up feature with an editable favorites list. We also hoped to make the app responsive for mobile interaction.
 
@@ -86,9 +92,9 @@ Having a back button from movie-info would be good.
 
 If a movie doesn't exist in our database (of only 2000 popular movies), it would be nice if we could pull the information from TMDb to fill in any gaps.
 
-Currently, passpords and secret keys for authentication aren't truly hidden. Hashing passwords and storing the secret key in an environmental variable are potential solutions for the future.
+Currently, passwords and secret keys for authentication aren't truly hidden. Hashing passwords and storing the secret key in an environmental variable are potential solutions for the future.
 
-We would like the make the site fully responsive for mobile devices.
+We would like to make the site fully responsive for mobile devices.
 
 # Contribution Resources
 
