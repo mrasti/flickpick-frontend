@@ -13,7 +13,6 @@ import DeleteUser from "../DeleteUser/DeleteUser";
 import { Route } from "react-router-dom";
 import "react-bootstrap";
 import axios from "axios";
-import Axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -46,7 +45,7 @@ class App extends Component {
     e.preventDefault();
     let userId = localStorage.userId;
     const url = `http://localhost:3000/api/user/${userId}`;
-    Axios.delete(url).then(_ => {
+    axios.delete(url).then(_ => {
       this.setState({
         email: "",
         password: "",
@@ -122,7 +121,7 @@ class App extends Component {
     const url = "http://localhost:3000/api/movies/search/";
 
     if (searchQuery.length > 0) {
-      Axios.get(url + searchQuery).then(res => {
+      axios.get(url + searchQuery).then(res => {
         this.setState({ searchList: res.data.results });
       });
     } else {
