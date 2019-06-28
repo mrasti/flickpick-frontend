@@ -4,9 +4,10 @@ class Login extends Component {
   render() {
     return (
       <div className="Signup">
-        <div class="vimeo-wrapper">
-   <iframe src="https://player.vimeo.com/video/344893583?background=1&autoplay=1&loop=1&byline=0&title=0"
-           frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      {/* Video background */}
+ <div className="vimeo-wrapper">
+<iframe src="https://player.vimeo.com/video/344893583?background=1&autoplay=1&loop=1&byline=0&title=0"
+    frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen title="background"></iframe>
 </div>
         <form>
           <div>

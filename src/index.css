@@ -68,6 +68,17 @@ body {
 }
 
 /* Genre */
+.genre{
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  box-shadow: 0 7px 5px rgba(44, 44, 44, 0.199);
+}
+.genre button{
+  padding-bottom: 15px;
+  height:40px;
+  
+}
 
 /* Genre Listing */
 
@@ -91,6 +102,7 @@ body {
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   font-weight: 600;
+  word-spacing: -7px;
 }
 .Signup span{
   color: #2a42ee;

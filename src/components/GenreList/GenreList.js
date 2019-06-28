@@ -39,7 +39,7 @@ class GenreList extends Component {
       //   id: newId,
       // })
       return (
-        <div key={index} className="movie-list">
+        <div key={index} className="movie-list genre">
           {/* Beginning of the card */}
 
           <Card style={{ width: "15rem" }}>
