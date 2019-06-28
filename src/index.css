@@ -157,6 +157,16 @@ body {
   /* vertical-align: middle; */
 }
 
+.Signup button {
+  background-color: #2a42ee;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+ width: 90px;
+  color:white;
+  letter-spacing: 1px;
+ 
+}
 .input-field{
   margin-bottom:5px;
 }
