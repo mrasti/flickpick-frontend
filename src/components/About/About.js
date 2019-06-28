@@ -10,7 +10,7 @@ class About extends Component {
             <div className="About">
             
             <h2>Abo<span>ut</span></h2>
-            <img src={FlixPick}></img>
+            <img src={FlixPick} alt="flickpick logo"></img>
             <h3 className="Centered">This App was built by:</h3>
             <p className="Centered">Shane Vann-Shirley, Paula Bannerman, Melika Rasti</p>
             <p>Our goal is to create a movie app that allows a user to log in, search for movies by various identifiers, and then store movies in a to-do list</p>
@@ -19,6 +19,7 @@ class About extends Component {
                 <li>Express</li>
                 <li>CORS</li>
                 <li>ReactJS/ ReactDOM</li>
+                <li>React Bootstrap</li>
                 <li>NodeJS</li>
                 <li>Mongoose</li>
                 <li>MongoDB</li>
@@ -27,8 +28,8 @@ class About extends Component {
             </ul>
             <h3>Re<span>po</span> Li<span>st</span></h3>
             <ul>
-                <li><a href="https://github.com/ashanevs/flickpick" target="_blank">FlickPick React App</a></li>
-                <li><a href="https://github.com/ashanevs/flickpick-api" target="_blank">FlickPick App Api</a></li>
+                <li><a rel="noopener noreferrer" href="https://github.com/ashanevs/flickpick" target="_blank">FlickPick React App</a></li>
+                <li><a rel="noopener noreferrer" href="https://github.com/ashanevs/flickpick-api" target="_blank">FlickPick App Api</a></li>
             </ul>
             <h3>Mode<span>ls</span> Us<span>ed</span></h3>
             <ul>
@@ -58,7 +59,7 @@ class About extends Component {
             <li>id: Number,</li>
             <li>name: String</li>
             </ul>
-            <img src={ModelImage}></img>
+            <img src={ModelImage} alt="Model images"></img>
             <h3>Bon<span>us</span> Objectiv<span>es</span></h3>
             <p>Adding authentication for users, embedding videos</p>
             <h3>Distributi<span>on</span> of Wo<span>rk</span></h3>
@@ -68,8 +69,8 @@ class About extends Component {
 
             <h3>WireFra<span>me</span> of Desi<span>gn</span></h3>
 
-            <img src={ProtoImage1}></img>
-            <img src={ProtoImage2}></img>
+            <img src={ProtoImage1} alt="Prototype 1"></img>
+            <img src={ProtoImage2} alt="Prototype 2"></img>
             </div>
         );
     }

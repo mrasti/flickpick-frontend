@@ -199,6 +199,26 @@ body {
   margin-bottom:5px;
 }
 
+.GenreBox{
+  margin-bottom: 25px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+
+}
+.GenreBox Button{
+  background-color: #2a42ee;
+  margin: 10px 25px;
+  padding-top: 5px;
+  padding-bottom: 17px;
+ width: 150px;
+ height: 40px;
+  color:white;
+  letter-spacing: 1px;
+  border-style: none;
+
+}
+
+
 /* Responsive */
 .vimeo-wrapper {
   position: fixed;

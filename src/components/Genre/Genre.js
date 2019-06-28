@@ -61,7 +61,7 @@ class Genre extends Component {
       <div className="columns">
           {list}
         <br/>
-        <div style={{display: "block"}}>
+        <div style={{display: "block"}} className="GenreBox">
           <button className="btn btn-primary" onClick={this.prev}>Previous Page</button>
           <label>{this.state.page+1} / {this.state.totalPages} </label>
           <button className="btn btn-primary" onClick={this.next}>Next Page</button>
