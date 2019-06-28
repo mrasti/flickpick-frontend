@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import Config from "../../config";
 import Movie from "../Movie/Movie";
 class FavoriteList extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class FavoriteList extends Component {
     };
   }
   componentDidMount() {
-    const url = `http://localhost:3000/api/user/${this.props.userId}`;
+    const url = Config.serverURL + `/user/${this.props.userId}`;
     Axios.get(url).then(res => {
       let results = res.data.favorites;
       this.setState(prevState => ({

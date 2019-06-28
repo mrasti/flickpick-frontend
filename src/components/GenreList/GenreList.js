@@ -3,6 +3,7 @@ import Axios from "axios";
 import Filmstrip from "./filmstrip.png";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Config from "../../config";
 
 class GenreList extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class GenreList extends Component {
     };
   }
   componentDidMount() {
-    const url = "http://localhost:3000/api/genre/";
+    const url = Config.serverURL + "/genre/";
     Axios.get(url).then(res => {
       let results = res.data;
       this.setState(prevState => ({

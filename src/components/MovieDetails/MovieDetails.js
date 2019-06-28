@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import FavoriteButton from "../../movFav.png";
 import RemoveButton from "../../movFavMinus.png";
 import Axios from "axios";
+import Config from "../../config";
+
 class MovieInfo extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class MovieInfo extends Component {
   };
   componentDidMount() {
     let movieInfo = this.props.match.params.id;
-    const url = `http://localhost:3000/api/movies/${movieInfo}`;
+    const url = Config.serverURL + `/movies/${movieInfo}`;
     //pulling all the data information
     Axios.get(url).then(res => {
       let results = res.data.results;
@@ -25,7 +27,7 @@ class MovieInfo extends Component {
         movie: results
       }));
     });
-    const category = `http://localhost:3000/api/genre/`;
+    const category = Config.serverURL +`/genre/`;
     Axios.get(category).then(res => {
       let results = res.data;
       this.setState(prevState => ({
@@ -40,14 +42,14 @@ class MovieInfo extends Component {
     if (!userId) {
       return this.props.history.push("/login");
     } else {
-      Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
+      Axios.get(Config.serverURL +`/user/${userId}`).then(user => {
         let filteredArray = user.data.favorites.filter(favorites => {
           return favorites._id === movieId;
         });
         if (filteredArray.length > 0) {
         } else
           Axios.put(
-            `http://localhost:3000/api/user/add/${userId}/${movieId}`,
+            Config.serverURL +`/user/add/${userId}/${movieId}`,
             {},
             {
               headers: { Authorization: "Bearer " + localStorage.token }
@@ -62,14 +64,14 @@ class MovieInfo extends Component {
     if (!userId) {
       return this.props.history.push("/login");
     } else {
-      Axios.get(`http://localhost:3000/api/user/${userId}`).then(user => {
+      Axios.get(Config.serverURL +`/user/${userId}`).then(user => {
         let filteredArray = user.data.favorites.filter(favorites => {
           return favorites._id === movieId;
         });
         if (filteredArray.length === 0) {
         } else
           Axios.put(
-            `http://localhost:3000/api/user/remove/${userId}/${movieId}`,
+            Config.serverURL +`/user/remove/${userId}/${movieId}`,
             {},
             {
               headers: { Authorization: "bearer " + localStorage.token }
