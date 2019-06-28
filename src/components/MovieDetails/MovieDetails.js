@@ -121,13 +121,21 @@ class MovieInfo extends Component {
                   onClick={this.handleAddFavorite}
                   className="favoriteButton"
                 >
-                  <img src={FavoriteButton} alt="favorite-button" />
+                  <img
+                    src={FavoriteButton}
+                    alt="favorite-button"
+                    title="Add Movie"
+                  />
                 </button>
                 <button
                   onClick={this.handleRemoveFavorite}
                   className="favoriteButton"
                 >
-                  <img src={RemoveButton} alt="remove-button" />
+                  <img
+                    src={RemoveButton}
+                    alt="remove-button"
+                    title="Remove Movie"
+                  />
                 </button>
               </p>
             </article>

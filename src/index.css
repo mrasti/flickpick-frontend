@@ -29,6 +29,12 @@ body {
   font-size: 20px;
   color: white;
 }
+.favoriteButton {
+  padding-bottom: 10px;
+  height: 40px;
+  margin: 0px 20px;
+  width: 100px;
+}
 
 /* navigation */
 .navBackground {
