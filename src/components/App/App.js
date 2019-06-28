@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Config from "../../config";
 import Home from "../Home/Home";
 import Movies from "../MovieList/MovieList";
 import Login from "../Login/Login";
@@ -47,7 +48,7 @@ class App extends Component {
   deleteUser = e => {
     e.preventDefault();
     let userId = localStorage.userId;
-    const url = `http://localhost:3000/api/user/${userId}`;
+    const url = Config.serverURL + `/user/${userId}`;
     Axios.delete(url).then(_ => {
       this.setState({
         email: "",
@@ -78,7 +79,7 @@ class App extends Component {
   handleSignUp(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/api/user/signup", {
+      .post(Config.serverURL + "/user/signup", {
         email: this.state.email,
         password: this.state.password
       })
@@ -94,7 +95,7 @@ class App extends Component {
   handleLogIn(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/api/user/login", {
+      .post(Config.serverURL + "/user/login", {
         email: this.state.email,
         password: this.state.password
       })
@@ -118,7 +119,7 @@ class App extends Component {
   };
 
   updateSearchResults(searchQuery) {
-    const url = "http://localhost:3000/api/movies/search/";
+    const url = Config.serverURL + "/movies/search/";
 
     if (searchQuery.length > 0) {
       Axios.get(url + searchQuery).then(res => {

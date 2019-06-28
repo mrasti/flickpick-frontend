@@ -1,27 +1,50 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import Movie from "../Movie/Movie";
+import Config from "../../config";
 
 class Genre extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieInfo: []
+      movieInfo: [],
+      page: 0,
+      totalPages: 0
     };
+
+    this.prev = this.prev.bind(this);
+    this.next = this.next.bind(this);
+    this.getMoviesOfGenre = this.getMoviesOfGenre.bind(this);
+
+    this.getMoviesOfGenre();
   }
-  componentDidMount() {
-    const url = "http://localhost:3000/api/movies/allmovies";
-    Axios.get(url).then(res => {
-      let results = res.data.results;
+
+  prev(){
+    var p = this.state.page - 1;
+    if(p>=0){
+      this.setState({page: p}, _ => this.getMoviesOfGenre());
+    }
+  }
+
+  next(){
+    var p = this.state.page + 1;
+    if(p<this.state.totalPages){
+      this.setState({page: p}, _ => this.getMoviesOfGenre());
+    }
+  }
+
+  getMoviesOfGenre() {
+    const url = Config.serverURL + "/genre/id/";
+    Axios.get(url + this.props.match.params.id + '?page=' + this.state.page).then(res => {
       this.setState(prevState => ({
-        movieInfo: results
+        movieInfo: res.data.result, 
+        totalPages: res.data.totalPages
       }));
     });
   }
+
   render() {
-    let genreId = this.props.match.params.id;
     let list = this.state.movieInfo.map((item, index) => {
-      if (item.genre_ids.includes(Number(genreId))) {
         return (
           <div className="movie-list" key={index}>
             <Movie
@@ -33,10 +56,18 @@ class Genre extends Component {
             />
           </div>
         );
-      }
-      return "";
     });
-    return <div className="columns">{list}</div>;
+    return (
+      <div className="columns">
+          {list}
+        <br/>
+        <div style={{display: "block"}}>
+          <button className="btn btn-primary" onClick={this.prev}>Previous Page</button>
+          <label>{this.state.page+1} / {this.state.totalPages} </label>
+          <button className="btn btn-primary" onClick={this.next}>Next Page</button>
+        </div>
+      </div>
+    );
   }
 }
 
